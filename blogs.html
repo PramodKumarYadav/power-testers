@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Our Blog</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="blogs.html">Blog</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Latest Posts</h2>
+            <input type="text" id="search-bar" placeholder="Search blog posts..." onkeyup="filterBlogs()">
+            <ul id="blog-list">
+                <li class="blog-item"><a href="blogs/blog1.html">The Importance of Automated Testing</a></li>
+                <li class="blog-item"><a href="blogs/blog2.html">How to Write Effective Test Cases</a></li>
+                <li class="blog-item"><a href="blogs/blog3.html">Understanding End-to-End Testing</a></li>
+            </ul>
+            <div id="pagination">
+                <button onclick="changePage(-1)">Previous</button>
+                <span id="page-info"></span>
+                <button onclick="changePage(1)">Next</button>
+            </div>
+        </section>
+       
+    </main>
+    <footer>
+        <p>&copy; 2024 My Website</p>
+    </footer>
+    <script>
+        function filterBlogs() {
+            const searchInput = document.getElementById('search-bar').value.toLowerCase();
+            const blogs = document.querySelectorAll('#blog-list li');
+
+            blogs.forEach((blog) => {
+                const text = blog.textContent.toLowerCase();
+                blog.style.display = text.includes(searchInput) ? '' : 'none';
+            });
+        }
+    </script>
+    <script>
+        const blogsPerPage = 2;
+        let currentPage = 1;
+
+        function paginateBlogs() {
+            const blogItems = document.querySelectorAll('.blog-item');
+            const totalPages = Math.ceil(blogItems.length / blogsPerPage);
+
+            blogItems.forEach((item, index) => {
+                item.style.display =
+                    index >= (currentPage - 1) * blogsPerPage && index < currentPage * blogsPerPage
+                        ? ''
+                        : 'none';
+            });
+
+            document.getElementById('page-info').textContent = `Page ${currentPage} of ${totalPages}`;
+            document.querySelector('#pagination button:nth-child(1)').disabled = currentPage === 1;
+            document.querySelector('#pagination button:nth-child(3)').disabled = currentPage === totalPages;
+        }
+
+        function changePage(direction) {
+            currentPage += direction;
+            paginateBlogs();
+        }
+
+        paginateBlogs();
+    </script>
+   
+</body>
+
+</html>
