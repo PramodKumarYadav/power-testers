@@ -125,7 +125,7 @@ article p {
 }
 
 /* Media query for small screens (e.g., mobile devices) */
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
     main {
         flex-direction: column;
         /* Stack aside and section vertically */
@@ -145,4 +145,4 @@ article p {
         width: 100%;
         /* Take full width */
     }
-} */
+}
