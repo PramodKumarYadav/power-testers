@@ -13,18 +13,45 @@ header {
     text-align: center;
 }
 
-nav a {
-    color: #fff;
-    margin: 0 0.5rem;
-    text-decoration: none;
+main {
+    display: flex;
+    flex-direction: row;  /* Arrange aside and section horizontally */
+    padding: 1rem;
+    margin: 1rem;
+}
+
+section {
+    flex: 1;
+    /* Ensure section takes remaining space */
+    display: block;
+    /* Ensure content flows naturally */
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+aside {
+    width: 25%;
+    /* Adjust width as needed */
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-right: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 footer {
+    border-top: 1px solid #ddd;
     background: #333;
     color: #fff;
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 0.5rem;
+    text-decoration: none;
 }
 
 form {
