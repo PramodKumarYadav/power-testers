@@ -3,7 +3,6 @@ body {
     margin: 1;
     padding: 0;
     line-height: 1.6;
-    /* background-color: lightblue; */
 }
 
 header {
@@ -20,6 +19,15 @@ main {
     margin: 1rem;
 }
 
+aside {
+    width: 25%;
+    /* Adjust width as needed */
+    background-color: #f9f9f9;
+    padding: 1rem;
+    margin-right: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 section {
     flex: 1;
     /* Ensure section takes remaining space */
@@ -30,14 +38,7 @@ section {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-aside {
-    width: 25%;
-    /* Adjust width as needed */
-    background-color: #f9f9f9;
-    padding: 20px;
-    margin-right: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+
 
 footer {
     border-top: 1px solid #ddd;
@@ -123,4 +124,27 @@ article p {
 #pagination button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
+}
+
+/* Media query for small screens (e.g., mobile devices) */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        /* Stack aside and section vertically */
+        padding: 10px;
+    }
+
+    aside {
+        width: 100%;
+        /* Take full width */
+        margin-right: 0;
+        /* No margin on smaller screens */
+        margin-bottom: 20px;
+        /* Add spacing between aside and section */
+    }
+
+    section {
+        width: 100%;
+        /* Take full width */
+    }
 }
